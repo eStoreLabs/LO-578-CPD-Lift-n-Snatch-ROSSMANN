@@ -1,15 +1,26 @@
 @charset "UTF-8";
 
 // set up variables
+@font-face {
+  font-family: "Authenia";
+  src: url("./fonts/Authenia.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-$text-main: "font-name", sans-serif;
-$text-secondary: "font-name", sans-serif;
+$text-main: "Montserrat", sans-serif;
+$text-secondary: "Barlow Condensed", sans-serif;
+$text-accent: "Authenia", sans-serif;
+$text-accent-2: "Barlow Semi Condensed", sans-serif;
 
 $fw-regular: 400;
+$fw-semibold: 600;
 $fw-bold: 700;
+$fw-black: 900;
 
 $fs-base: 16px;
-$fs-header: 32px;
+$fs-header: 48px;
+$fs-header-desktop: 60px;
 
 $px-S: 8px;
 $px-M: 16px;
@@ -17,10 +28,10 @@ $px-L: 24px;
 $px-XL: 32px;
 $px-XXL: 40px;
 
-$color-main: #0d1116;
-$color-bg: #f6f8fa;
-$color-accent: #f6a255;
-$color-accent-2: #69a7dd;
+$color-main: #ffffff;
+$color-bg: #479fcd;
+$color-accent: #ec008b;
+$color-accent-2: #000000;
 
 $media-breakpoint-sm: 576px;
 $media-breakpoint-md: 768px;
@@ -34,7 +45,7 @@ $media-breakpoint-xl: 1200px;
   line-height: 1.2;
   color: $color-main;
   background-color: $color-bg;
-  max-width: 990px; //adjust, based on https://github.com/eStoreLabs/READ-ME/blob/main/DEVELOPMENT_GUIDELINES_FOR_GENERICS.md#2-styles
+  max-width: 990px;
   margin: auto;
 
   ::selection {
@@ -50,6 +61,11 @@ $media-breakpoint-xl: 1200px;
 
   p {
     margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 
   img {
@@ -68,39 +84,54 @@ $media-breakpoint-xl: 1200px;
     font-weight: $fw-bold;
     text-align: center;
     margin-block: $px-M;
+    text-transform: uppercase;
   }
 
-  .es-kv {
-    background-color: $color-bg;
-    &__img {
-      &--desktop {
-        display: none;
-      }
-      @media (min-width: $media-breakpoint-md) {
-        &--mobile {
-          display: none;
-        }
-        &--desktop {
-          display: block;
-        }
-      }
+  .es-cross {
+    padding: $px-M;
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: $px-M;
+      margin-block: $px-M;
     }
-  }
-
-  .es-section {
-    margin-block: $px-M;
-
-    &__button {
-      background-color: $color-accent;
-      padding: $px-S $px-M;
-      cursor: pointer;
-      margin: auto;
-
-      @media (min-width: $media-breakpoint-md) {
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: $px-XL;
+      &__image {
+        width: 100%;
+        img {
+          max-height: 250px;
+          width: auto;
+        }
+      }
+      &__textCtn {
+        display: flex;
+        flex-direction: column;
+        gap: $px-M;
+      }
+      &__title {
+        font-size: calc(1.2 * $fs-base);
+        font-weight: $fw-black;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      &__description {
+        font-weight: $fw-semibold;
+        text-align: center;
+      }
+      &__CTA {
+        font-size: calc(1.2 * $fs-base);
+        font-weight: $fw-black;
+        text-align: center;
         background-color: $color-accent-2;
+        cursor: pointer;
+        padding: $px-M $px-L;
+        text-transform: uppercase;
       }
     }
   }
-
-  // other sections
 }
