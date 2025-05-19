@@ -52,17 +52,41 @@
   padding: 16px;
 }
 #es-rc #es-rc-content .es-cross__content {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
   margin-block: 16px;
+}
+@media (min-width: 768px) {
+  #es-rc #es-rc-content .es-cross__content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+  }
 }
 #es-rc #es-rc-content .es-cross__item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  max-width: 230px;
   gap: 32px;
+  transition: all 0.2s ease-in-out;
+}
+#es-rc #es-rc-content .es-cross__item:hover .es-cross__item__CTA {
+  background-color: #ec008b;
+}
+#es-rc #es-rc-content .es-cross__item:hover .es-cross__item__image img {
+  scale: 1.05;
+}
+@media (min-width: 768px) {
+  #es-rc #es-rc-content .es-cross__item {
+    display: grid;
+    grid-template-rows: auto 150px auto;
+    align-items: start;
+  }
 }
 #es-rc #es-rc-content .es-cross__item__image {
   width: 100%;
@@ -70,6 +94,10 @@
 #es-rc #es-rc-content .es-cross__item__image img {
   max-height: 250px;
   width: auto;
+  transition: all 0.2s ease-in-out;
+}
+#es-rc #es-rc-content .es-cross__item__image img:hover {
+  scale: 1.05;
 }
 #es-rc #es-rc-content .es-cross__item__textCtn {
   display: flex;
@@ -77,14 +105,16 @@
   gap: 16px;
 }
 #es-rc #es-rc-content .es-cross__item__title {
-  font-size: 19.2px;
+  font-size: 17.6px;
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
+  min-height: 3em;
 }
 #es-rc #es-rc-content .es-cross__item__description {
   font-weight: 600;
   text-align: center;
+  font-size: 14.4px;
 }
 #es-rc #es-rc-content .es-cross__item__CTA {
   font-size: 19.2px;
@@ -92,6 +122,10 @@
   text-align: center;
   background-color: #000000;
   cursor: pointer;
-  padding: 16px 24px;
+  padding: 12px 24px;
   text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+#es-rc #es-rc-content .es-cross__item__CTA:hover {
+  background-color: #ec008b;
 }/*# sourceMappingURL=styles.css.map */

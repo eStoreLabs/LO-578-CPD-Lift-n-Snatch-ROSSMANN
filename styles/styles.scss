@@ -38,6 +38,8 @@ $media-breakpoint-md: 768px;
 $media-breakpoint-lg: 992px;
 $media-breakpoint-xl: 1200px;
 
+$transition: all 0.2s ease-in-out;
+
 #es-rc #es-rc-content {
   font-family: $text-main;
   font-size: $fs-base;
@@ -90,22 +92,48 @@ $media-breakpoint-xl: 1200px;
   .es-cross {
     padding: $px-M;
     &__content {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
       gap: $px-M;
       margin-block: $px-M;
+      @media (min-width: $media-breakpoint-md) {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+      }
     }
     &__item {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
+      max-width: 230px;
       gap: $px-XL;
+      transition: $transition;
+      &:hover {
+        .es-cross__item__CTA {
+          background-color: $color-accent;
+        }
+        .es-cross__item__image img {
+          scale: 1.05;
+        }
+      }
+      @media (min-width: $media-breakpoint-md) {
+        display: grid;
+        grid-template-rows: auto 150px auto;
+        align-items: start;
+      }
       &__image {
         width: 100%;
         img {
           max-height: 250px;
           width: auto;
+          transition: $transition;
+          &:hover {
+            scale: 1.05;
+          }
         }
       }
       &__textCtn {
@@ -114,14 +142,16 @@ $media-breakpoint-xl: 1200px;
         gap: $px-M;
       }
       &__title {
-        font-size: calc(1.2 * $fs-base);
+        font-size: calc(1.1 * $fs-base);
         font-weight: $fw-black;
         text-transform: uppercase;
         text-align: center;
+        min-height: 3em;
       }
       &__description {
         font-weight: $fw-semibold;
         text-align: center;
+        font-size: calc(0.9 * $fs-base);
       }
       &__CTA {
         font-size: calc(1.2 * $fs-base);
@@ -129,8 +159,12 @@ $media-breakpoint-xl: 1200px;
         text-align: center;
         background-color: $color-accent-2;
         cursor: pointer;
-        padding: $px-M $px-L;
+        padding: 12px 24px;
         text-transform: uppercase;
+        transition: $transition;
+        &:hover {
+          background-color: $color-accent;
+        }
       }
     }
   }
