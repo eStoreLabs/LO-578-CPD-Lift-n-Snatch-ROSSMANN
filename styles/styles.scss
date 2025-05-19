@@ -33,6 +33,12 @@ $color-bg: #479fcd;
 $color-accent: #ec008b;
 $color-accent-2: #000000;
 
+$gradient: linear-gradient(
+  180deg,
+  rgba(6, 153, 227, 1) 0%,
+  rgba(46, 185, 244, 1) 100%
+);
+
 $media-breakpoint-sm: 576px;
 $media-breakpoint-md: 768px;
 $media-breakpoint-lg: 992px;
@@ -87,6 +93,54 @@ $transition: all 0.2s ease-in-out;
     text-align: center;
     margin-block: $px-M;
     text-transform: uppercase;
+  }
+
+  .es-before-after {
+    background: $gradient;
+    &__middle {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &--textCtn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-block: $px-S;
+      }
+      &--text {
+        text-transform: uppercase;
+        font-weight: $fw-regular;
+        font-family: $text-secondary;
+        font-size: 32px;
+        text-align: center;
+      }
+    }
+    @media (min-width: $media-breakpoint-sm) {
+      display: flex;
+      align-items: center;
+      position: relative;
+      &__middle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 90%;
+        overflow: hidden;
+        &--image {
+          height: 100%;
+          transition: $transition;
+          &:hover {
+            scale: 1.05;
+          }
+        }
+      }
+    }
   }
 
   .es-cross {
