@@ -3,7 +3,7 @@
 // set up variables
 @font-face {
   font-family: "Authenia";
-  src: url("./fonts/Authenia.otf") format("opentype");
+  src: url("../fonts/Authenia.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -14,6 +14,7 @@ $text-accent: "Authenia", sans-serif;
 $text-accent-2: "Barlow Semi Condensed", sans-serif;
 
 $fw-regular: 400;
+$fw-medium: 500;
 $fw-semibold: 600;
 $fw-bold: 700;
 $fw-black: 900;
@@ -37,6 +38,15 @@ $gradient: linear-gradient(
   180deg,
   rgba(6, 153, 227, 1) 0%,
   rgba(46, 185, 244, 1) 100%
+);
+
+$gradient-2: linear-gradient(
+  68deg,
+  rgba(74, 165, 209, 1) 0%,
+  rgba(64, 145, 198, 1) 25%,
+  rgba(52, 123, 185, 1) 50%,
+  rgba(43, 103, 175, 1) 75%,
+  rgba(33, 78, 160, 1) 100%
 );
 
 $media-breakpoint-sm: 576px;
@@ -95,6 +105,106 @@ $transition: all 0.2s ease-in-out;
     text-transform: uppercase;
   }
 
+  .es-steps {
+    background: $gradient-2;
+    padding: $px-M;
+    &__title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      &--liftCtn,
+      &--brow-glue {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &--lift {
+        min-width: max-content;
+        word-break: break-all;
+      }
+      &--snatch {
+        margin: unset;
+        max-width: 170px;
+        max-height: 70px;
+        aspect-ratio: 259 / 103;
+      }
+      &--plus {
+        font-family: $text-accent;
+        font-size: 60px;
+        margin-right: 8px;
+      }
+    }
+    &__content {
+      &--imageCtn {
+        overflow: hidden;
+      }
+      &--image {
+        transition: $transition;
+        &:hover {
+          scale: 1.05;
+        }
+      }
+      &--text {
+        text-transform: uppercase;
+        font-family: $text-secondary;
+        font-weight: $fw-bold;
+        font-size: 24px;
+        background-color: $color-accent;
+        padding-block: 6px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    &__flexCtn {
+      display: flex;
+      flex-direction: column;
+      gap: $px-M;
+      @media (min-width: $media-breakpoint-sm) {
+        flex-direction: row;
+      }
+    }
+    &__left,
+    &__right {
+      position: relative;
+      &--product {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+        @media (min-width: $media-breakpoint-sm) {
+          left: 50%;
+          top: 45%;
+        }
+      }
+      &--product-image {
+        max-height: 450px;
+        width: auto;
+        @media (min-width: $media-breakpoint-sm) {
+          max-height: 400px;
+        }
+      }
+      &--description {
+        padding: $px-S;
+        @media (min-width: $media-breakpoint-sm) {
+          width: 50%;
+          padding-right: $px-M;
+        }
+      }
+      &--description-title {
+        font-family: $text-accent-2;
+        text-transform: uppercase;
+        font-weight: $fw-medium;
+        font-size: 28px;
+      }
+    }
+    &__right--product {
+      left: 88%;
+      @media (min-width: $media-breakpoint-sm) {
+        left: 50%;
+      }
+    }
+  }
   .es-before-after {
     background: $gradient;
     &__middle {
@@ -142,7 +252,6 @@ $transition: all 0.2s ease-in-out;
       }
     }
   }
-
   .es-cross {
     padding: $px-M;
     padding-bottom: calc(3 * $px-XL);
