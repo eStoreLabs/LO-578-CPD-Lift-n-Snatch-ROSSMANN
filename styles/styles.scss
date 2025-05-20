@@ -285,6 +285,13 @@ $transition: all 0.2s ease-in-out;
         max-width: 120px;
         max-height: 70px;
         aspect-ratio: 259 / 103;
+        @media (min-width: $media-breakpoint-md) {
+          max-width: 150px;
+          margin-left: -11px;
+        }
+        @media (min-width: $media-breakpoint-lg) {
+          max-width: 200px;
+        }
       }
       &--plus {
         font-family: $text-accent;

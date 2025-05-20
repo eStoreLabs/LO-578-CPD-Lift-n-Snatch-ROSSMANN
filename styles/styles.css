@@ -258,6 +258,17 @@
   max-height: 70px;
   aspect-ratio: 259/103;
 }
+@media (min-width: 768px) {
+  #es-rc #es-rc-content .es-steps__title--snatch {
+    max-width: 150px;
+    margin-left: -11px;
+  }
+}
+@media (min-width: 992px) {
+  #es-rc #es-rc-content .es-steps__title--snatch {
+    max-width: 200px;
+  }
+}
 #es-rc #es-rc-content .es-steps__title--plus {
   font-family: "Authenia", sans-serif;
   font-size: 60px;
