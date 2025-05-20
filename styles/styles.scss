@@ -41,7 +41,7 @@ $gradient: linear-gradient(
 );
 
 $gradient-2: linear-gradient(
-  68deg,
+  5deg,
   rgba(74, 165, 209, 1) 0%,
   rgba(64, 145, 198, 1) 25%,
   rgba(52, 123, 185, 1) 50%,
@@ -104,7 +104,110 @@ $transition: all 0.2s ease-in-out;
     margin-block: $px-M;
     text-transform: uppercase;
   }
-
+  .es-features {
+    background: $gradient-2;
+    padding: $px-M;
+    @media (min-width: $media-breakpoint-md) {
+      padding: 0 $px-M;
+    }
+    .es-section-title {
+      margin-block: 0;
+      line-height: 1;
+    }
+    &__title {
+      max-width: 400px;
+      margin: auto;
+      &--subtitle {
+        font-weight: $fw-bold;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: calc(1.5 * $fs-base);
+        margin-block: $px-S;
+      }
+    }
+    &__products {
+      max-width: 400px;
+      margin: auto;
+      @media (min-width: $media-breakpoint-md) {
+        max-width: 300px;
+      }
+    }
+    &__flexCtn {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
+      &--1 {
+        @media (min-width: $media-breakpoint-md) {
+          position: absolute;
+          top: 28%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 260px;
+        }
+      }
+      &--2 {
+        @media (min-width: $media-breakpoint-md) {
+          position: absolute;
+          top: 72%;
+          left: 74%;
+          transform: translate(-50%, -50%);
+          width: max-content;
+        }
+      }
+    }
+    &__item {
+      display: flex;
+      font-family: $text-accent;
+      font-size: calc(3 * $fs-base);
+      @media (min-width: $media-breakpoint-md) {
+        font-size: 30px;
+      }
+      &--check {
+        @media (min-width: $media-breakpoint-md) {
+          width: 30px;
+        }
+      }
+    }
+    &__desktopCtn {
+      @media (min-width: $media-breakpoint-md) {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+    }
+    &__left {
+      position: relative;
+      @media (min-width: $media-breakpoint-md) {
+        width: 60%;
+      }
+    }
+    &__right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      @media (min-width: $media-breakpoint-md) {
+        padding: $px-M;
+        width: 40%;
+      }
+    }
+    &__bg {
+      display: none;
+      @media (min-width: $media-breakpoint-md) {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+      &--img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
   .es-steps {
     background: $gradient-2;
     padding: $px-M;
